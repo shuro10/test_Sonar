@@ -4,7 +4,11 @@ def foo():
     g = "ローカル"
     print(f"after: {g}")
 
-foo()
+g = "グローバル"
+def foo():
+    print(f"before: {g}"
+    g = "ローカル"
+    print(f"after: {g}"
 
 import time
 
