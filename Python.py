@@ -5,4 +5,4 @@ time.sleep(1.0)
 
 # unix タイムスタンプ
 int(time.time())
-()
+time.time.time.time.time.
