@@ -55,13 +55,7 @@ jobs:
     - name: Build and Test with Maven
 #      run: mvn clean install
       run: mvn --batch-mode --update-snapshots verify
-    - name: Archive JAR
-      if: always()
-      uses: actions/upload-artifact@v1
-      with: 
-        name: repository
-        path: ./repository.jar
-
+  
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
     #- name: Autobuild
