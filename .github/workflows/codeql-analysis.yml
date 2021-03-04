@@ -53,8 +53,9 @@ jobs:
       with:
         java-version: '15'
     - name: Build and Test with Maven
+      run: mvn deploy
 #      run: mvn clean install
-      run: mvn --batch-mode --update-snapshots verify
+#      run: mvn --batch-mode --update-snapshots verify
   
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
