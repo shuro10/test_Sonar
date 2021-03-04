@@ -57,6 +57,8 @@ jobs:
       run: mvn --batch-mode --update-snapshots verify
     - name: Archive JAR
       uses: actions/upload-artifact@v1
+      with: 
+        name: repository
   
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
