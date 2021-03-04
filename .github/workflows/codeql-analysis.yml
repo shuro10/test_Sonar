@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'java' ]
+        language: [ 'python' ]
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]
         # Learn more:
         # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed
@@ -59,10 +59,15 @@ jobs:
     # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
     #    and modify them (or add more) to build your code if your project
     #    uses a compiled language
-    - name: Build Java
+    - if: matrix.language == 'python' || matrix.language == 'csharp' 
+      name: Autobuild
+      uses: github/codeql-action/autobuild@v1
+
+    - if: matrix.language == 'java' 
+      name: Build Java
       run: |
-       make bootstrap
-       make release
+        make bootstrap
+        make release
     #- run: |
     #   make bootstrap
     #   make release
