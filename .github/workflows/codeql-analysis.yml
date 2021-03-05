@@ -54,7 +54,8 @@ jobs:
         java-version: '11'
     - name: Build and Test with Maven
 #      run: mvn clean install
-      run: mvn --batch-mode --update-snapshots verify
+#      run: mvn --batch-mode --update-snapshots verify
+      run: mvn --batch-mode
     - name: Archive JAR
       uses: actions/upload-artifact@v1
       with: 
