@@ -53,13 +53,13 @@ jobs:
       with:
         java-version: '11'
     - name: Build and Test with Maven
-      run: mvn clean install
-#      run: mvn --batch-mode --update-snapshots verify
-    - name: Archive JAR
-      uses: actions/upload-artifact@v1
-      with: 
-        name: repository
-        path: /home/runner/work/_temp/codeql_databases/java/
+#      run: mvn clean install
+      run: mvn --batch-mode --update-snapshots verify
+#    - name: Archive JAR
+#      uses: actions/upload-artifact@v1
+#      with: 
+#        name: repository
+#        path: /home/runner/work/_temp/codeql_databases/java/
 #        path: /home/runner/work/test_code_scan/test_code_scan/target/
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
