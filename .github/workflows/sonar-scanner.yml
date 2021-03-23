@@ -1,0 +1,49 @@
+name: sonar-scanner
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: Set up JDK 1.8
+#       uses: actions/setup-java@v1
+#       with:
+#         java-version: 1.8
+#     - name: Setup sonarqube
+#       uses: warchant/setup-sonar-scanner@v3
+#     - name: Run sonarqube
+#       env:
+#     # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
+#         GITHUB_TOKEN: 
+#       run: sonar-scanner
+#        -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+#        -Dsonar.organization=1corp
+#        -Dsonar.host.url=https://sonarcloud.io/
+#        -Dsonar.projectKey=sonar-scanner-action
+#        jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag byte/sonarscan-test:$(date +%s) #buildしてbinariesを作る
+
+    - name: Setup sonarqube　
+      uses: warchant/setup-sonar-scanner@v3 #https://github.com/marketplace/actions/sonar-scannerを採用
+    - name: Run sonarqube
+    #  env:
+    # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
+      #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: sonar-scanner
+           -Dsonar.login=e7f69a4fa46e282022d13886ec6a7bf7af4fa215
+           -Dsonar.organization=yjp
+           -Dsonar.host.url=https://sonarcloud.io/
+           -Dsonar.projectKey=sonar-scanner-action
