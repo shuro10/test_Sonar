@@ -47,3 +47,5 @@ jobs:
            -Dsonar.organization=yjp
            -Dsonar.host.url=https://sonarcloud.io/
            -Dsonar.projectKey=sonar-scanner-action
+           -Dsonar.login=“admin” -Dsonar.login=“yokogawa123$$”
+           
