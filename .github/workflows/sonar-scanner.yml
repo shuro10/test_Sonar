@@ -33,8 +33,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag byte/sonarscan-test:$(date +%s) #buildしてbinariesを作る
+#    - name: Build the Docker image
+ #     run: docker build . --file Dockerfile --tag byte/sonarscan-test:$(date +%s) #buildしてbinariesを作る
 
     - name: Setup sonarqube　
       uses: warchant/setup-sonar-scanner@v3 #https://github.com/marketplace/actions/sonar-scannerを採用
