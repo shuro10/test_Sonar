@@ -10,3 +10,4 @@ public class SampleClass {
 		result = valueA / valueB;
 	}
 }
+}
